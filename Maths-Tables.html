@@ -30,7 +30,7 @@
 				// generates a random number between 2 and 12
 				var randomNumber = Math.floor(Math.random() * (12 - 2 + 1)) + 2;
 			
-				document.getElementById('randomGeneratedMathsTable').innerHTML = randomTable +  ' X ' + randomNumber + ' = ';
+				document.getElementById('randomGeneratedMathsTable').innerHTML = randomTable +  '&nbsp; x &nbsp;' + randomNumber + '&nbsp; = &nbsp;';
 			}
 		}
 		
@@ -80,7 +80,7 @@
 	<Button id="tableClearButton" name="tableClearButton" style="width:150px;" onclick="tableClearButtonClicked()">Clear Selection</Button>
 	
 	<BR><BR><BR>
-	<FONT size="25px">
+	<FONT size="25px" face="Cambria Math">
 		<DIV id="randomGeneratedMathsTable"></DIV>
 	</FONT>
 	</CENTER>
