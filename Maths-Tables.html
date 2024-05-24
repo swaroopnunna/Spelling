@@ -3,6 +3,9 @@
 	<SCRIPT>
 		
 		var tablesSelected = [];
+		var randomTable = 0;
+		var randomNumber = 0;
+		
 		function tableStartButtonClicked()
 		{
 			tablesSelected = [];
@@ -25,12 +28,13 @@
 			if (tablesSelected.length > 0) //Executes only when atleast one checkbox is checked
 			{			
 				var randomIndex = Math.floor(Math.random() * tablesSelected.length)
-				var randomTable = tablesSelected[randomIndex];
+				randomTable = tablesSelected[randomIndex];
 			
 				// generates a random number between 2 and 12
-				var randomNumber = Math.floor(Math.random() * (12 - 2 + 1)) + 2;
+				randomNumber = Math.floor(Math.random() * (12 - 2 + 1)) + 2;
 			
 				document.getElementById('randomGeneratedMathsTable').innerHTML = randomTable +  '&nbsp; x &nbsp;' + randomNumber + '&nbsp; = &nbsp;';
+				
 			}
 		}
 		
@@ -45,14 +49,27 @@
 			document.getElementById('randomGeneratedMathsTable').innerHTML='';
 			tablesSelected=[];
 		}
+		
+		function showAnswerButtonClicked()
+		{
+		
+			alert(randomTable + 'x' + randomNumber);
+			
+		}
+		
+		
 	</SCRIPT>
 </HEAD>
 <BODY onKeyPress = "generateRandomMathsTable()" onClick="generateRandomMathsTable()">
 
 	<CENTER>
-	<FONT size="5px" face="Cambria Math">
-	Select tables:<BR><BR>
+	<FONT size="3px" face="Cambria Math">
+		Select tables:
+		<BR><BR>
 	</FONT>
+	
+	<FONT face="Cambria Math">
+	
 	<input type="checkbox" id="TableTwo" name="MathsTable" value="2">	<label for="TableTwo"> 2</label>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
 	<input type="checkbox" id="TableThree" name="MathsTable" value="3">	<label for="TableThree"> 3</label>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -74,7 +91,7 @@
 	<input type="checkbox" id="TableEleven" name="MathsTable" value="11">	<label for="TableThree"> 11</label>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
 	<input type="checkbox" id="TableTwelve" name="MathsTable" value="12">	<label for="TableThree"> 12</label>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
+	</FONT>
 	<BR><BR>
 	
 	<Button id="tableStartButton" name="tableStartButton" style="width:150px;" onclick="tableStartButtonClicked()">Start</Button>
@@ -86,7 +103,8 @@
 	<BR><BR>
 	<FONT size="25px" face="Cambria Math">
 		<DIV id="randomGeneratedMathsTable"></DIV>
-	</FONT>
+	</FONT>	
+	
 	</CENTER>
 	
 </BODY>
